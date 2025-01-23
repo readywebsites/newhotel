@@ -1,0 +1,668 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'header.html' %}
+<body>
+ 
+    <script type="text/javascript">
+    $( function() {
+    var localcity = {"data":0};
+    $(".localcity").autocomplete({source: localcity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".localcity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );
+    
+  $( function() {
+    var outcity = [{"id":"226","label":"Somnath"},{"id":"227","label":"Ahmedabad"},{"id":"233","label":"Diu"},{"id":"231","label":"Dwarka"},{"id":"232","label":"Jamnagar"},{"id":"230","label":"Keshod"},{"id":"229","label":"Sasan Gir"},{"id":"228","label":"Veraval"}];
+    $(".outcity").autocomplete({source: outcity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".outcity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );  
+  
+  $( function() {
+    var transcity = {"data":0};
+    $(".transcity").autocomplete({source: transcity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".transcity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } ); 
+   $( function() {
+    var onecity = {"data":0};
+    $(".onecity").autocomplete({source: onecity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".onecity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );  
+    
+    $( function() {
+    var radiocity = {"data":0};
+    $(".radiocity").autocomplete({source: radiocity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".radiocity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );  
+    
+
+
+  
+function initAutocomplete(){ 
+$("input[id*='location']").each(function() {
+autocomplete = new google.maps.places.Autocomplete((this));   
+autocomplete.setComponentRestrictions({ 'country': 'IN' });
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+});
+});
+}
+
+
+</script> 
+
+<div class="header_2">
+     <div class="main fixed-top">
+    
+{% include 'nav.html' %}
+  
+</div>
+    </div><script src="{% static 'assets/js/api.js' %}"></script>
+<script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdHk6oqAAAAAABdoKgtY02vEsZQ5mxVW2OLzWFf', { action: 'contact' }).then(function (token) {
+                var recaptchaResponse = document.getElementById('recaptchaResponse');
+                recaptchaResponse.value = token;
+            });
+        });
+    </script> 
+<style>.buzz_header {
+    margin-top: 33px;
+    position: relative;
+    z-index: 9;
+}.buzz_search_new {
+    margin-top: 75px;
+   background: #0551e1;
+    padding: 10px 0 0 0;
+}</style>
+    <section class="buzz_search_new">
+    		<div class="container" style="padding-bottom: 25px;">
+    		    <div class="row fleettop_bnnr">
+    		        <div class="col-md-5">
+    		            <style>
+   .ui-helper-hidden-accessible{display:none}.ui-autocomplete{cursor:default;left:0;position:absolute;top:0;max-height:190px;overflow-y:hidden;overflow-x:hidden;z-index:2147483647}.ui-front{z-index:100}.ui-menu{display:block;list-style:none;margin:0;outline:0;padding:0}.ui-widget{font-family:arial;font-size:1.1em;color:#111}.ui-autocomplete{overflow:hidden;-webkit-box-shadow:2px 17px 67px -4px rgba(0,0,0,.75);-moz-box-shadow:2px 17px 67px -4px rgba(0,0,0,.75);box-shadow:2px 17px 67px -4px rgba(0,0,0,.75);border:1px solid #fff;background:#fff}
+@media screen and (max-width: 767px) {
+ .pac-container {
+    top: 208px !important;
+}
+.pac-container.pac-logo.topspace {
+    top: 150px !important;
+}
+}
+
+.xdsoft_datetimepicker .xdsoft_timepicker {
+    width: 81px !important;
+    float: left;
+    text-align: center;
+    margin-left: 8px;
+    margin-top: 0;
+}</style>
+    <script> 
+            function searchlocal(cityid) { 
+                $.ajax({
+                type:'post',
+                 
+                url: 'https://shreeramtourtravels.co.in/ajax/Localpackage/index?city='+cityid+'&type=room',
+                dataType: "html", 
+                success: function(response){  
+                         $('#localpackage').html( response );
+                          $('#packloader').html('');
+                  }
+              }); 
+            } 
+        </script> 
+        <script> 
+            function searchtransfer(cityid) { 
+                $.ajax({
+                type:'post',
+                  
+                url: 'https://shreeramtourtravels.co.in/ajax/Localpackage/transfer?city='+cityid+'&type=airport',
+                dataType: "html", 
+                success: function(response){  
+                         $('#transpackage').html( response );
+                          $('#packloader').html('');
+                  }
+              }); 
+            } 
+        </script>
+<script>
+			function showlocal(){
+				
+				$('#hourly-tab').addClass('active');
+				$('#airport-tab').removeClass('active');
+				$('#hourly').addClass('show active');
+				$('#airport').removeClass('show active');
+				
+			}
+  
+  		    
+  			$(document).ready(function(){
+
+             $('.room_search input').focus(function(){ 
+               $('.pac-container').removeClass('topspace');
+              });
+             $('#location101').focus(function(){ 
+               $('.pac-container').addClass('topspace');
+              });
+            });
+		</script>
+{% include 'custom_form.html' %}
+
+        
+        
+        
+        
+         <!-- /. error modal-content start -->
+
+            <!-- /. error modal-content start -->       		        </div>
+    			      
+    			   <div class="col-md-7">
+        			  <div class="city_img">
+                                                                                <img src="{{room.image.url}}" alt>
+                                
+                      </div>
+                      <div class="abt_txt why_c cit_txt1">
+                         <h1 style="font-weight: 600!important;padding-bottom: 10px;">{{room.name}}</h1>
+                      </div>
+                    </div>  
+                </div>
+    		</div>
+	</section>
+  
+    <section class="container abt_us career">
+
+    <div class="row">
+    
+            <div class="col-md-8 col-lg-8 col-12  ">
+                <div class="abt_txt why_c cit_txt1 fleetpages">
+                    
+                 
+                  
+                                        <ul>
+                        <li>Vehicle Name : {{room.name}} </li>
+                        
+                        <li>Price : ₹ {{room.price}}/Km</li>
+                        <li>Best Price Guarantee</li>
+                    </ul>
+                                        <p></p><h2> {{room.name}} Traveller hire in Somnath</h2>
+
+<p>Be comfortable as you explore the holy city of Somnath with your group by booking a <strong>tempo traveller hire in Somnath </strong>from Shree Ram Tour &amp; Travels. Our range of well-maintained Tempo Travellers is available for rent at budget-friendly prices and is a perfect choice for group travel. Whatever the purpose of your trip, perhaps a pilgrimage, a corporate team outing, or a family reunion, our &ldquo;<strong>Somnath tempo traveller</strong>&rdquo; can cater to your group&#39;s requirements. Our experienced drivers and helpful staff make sure that the trips become safe as well as memorable.&nbsp;</p>
+
+<h2>Somnath tempo traveller on Rent</h2>
+
+<p>Somnath Temple is one of the most sacred Hindu temples in India, located in Gujarat. Dedicated to Lord Shiva, this ancient temple is considered one of the twelve Jyotirlingas, making it a sacred pilgrimage site. Somnath Temple attracts millions of devotees and tourists every year. Due to its beauty, over 5 million people visit this temple every year. Shree Ram Tours &amp; Travels helps in booking an affordable tempo traveller in Somnath to provide you with a memorable journey with your loved ones.</p>
+
+<h2>Benefits of{{room.name}} traveller on rent in Somnath&nbsp;</h2>
+
+<p>The key benefits of <a href="https://shreeramtourtravels.co.in/"><strong>tempo traveller hire in Somnath</strong></a>&nbsp;are given below:</p>
+
+<ul>
+	<li>
+	<p>Available Seating Capacity for 12 Passengers</p>
+	</li>
+	<li>
+	<p>Leg Space and Stretched Luggage Area</p>
+	</li>
+	<li>
+	<p>1x1 seating arrangement</p>
+	</li>
+	<li>
+	<p>Experienced and knowledgeable driver for a safe journey,&nbsp;</p>
+	</li>
+	<li>
+	<p>Affordable tempo traveller price for a cost-effective journey,</p>
+	</li>
+	<li>
+	<p>Ideal for groups of pilgrims, family outings, and corporate trips,&nbsp;</p>
+	</li>
+	<li>
+	<p>Provides for a memorable and comfortable journey to Somnath.</p>
+	</li>
+</ul>
+
+<h2>{{room.name}}</h2>
+
+<p><strong>{{room.name}}</strong>&nbsp;from Shree Ram Tour &amp; Travels is a perfect choice for group travelling. Our safe and comfortable Tempo Travellers can carry large groups providing space for both passengers and luggage. In contrast to other modes of transportation, our spacious Tempos enable customers to carry their luggage without disturbing other passengers. This means you can travel with ease knowing that your belongings are secure and within your reach. Our experienced drivers know the routes and can handle large groups with ease. Hire tempo traveller in Somnath from us to travel with your group in an affordable and convenient way.</p>
+
+<h2>Flexible {{room.name}}</h2>
+
+<p>{{room.name}} hire in Somnath is available for various purposes, like:</p>
+
+<ul>
+	<li>
+	<p><strong>One-Way:</strong> Shree Ram Tour &amp; Travels offers a one-way 12-seater Tempo Traveller in Somnath, so the customers can book our tempos for one side of the journey. It will save you the return journey charges, as you will not need to pay for the return journey.</p>
+	</li>
+	<li>
+	<p><strong>Round Trip</strong>: Round trip tempo Traveller service in Somnath helps customers easily return from their trip without again making the bookings and paying. In other words, it ensures to get back hassle-free, as the rest of the plans remain with you only.</p>
+	</li>
+	<li>
+	<p><strong>Outstation:</strong> We offer outstation tempo traveller on rent in Somnath making the customers travel from Somnath to distant places. You can cover large distances with our experienced drivers and well-maintained vehicles without worrying about your safety.</p>
+	</li>
+	<li>
+	<p><strong>Local:</strong> Explore the local destinations in Somnath with your group with our local tempo travellers. Knowledgeable drivers can take you to popular attractions, temples, and other places of interest. So it is an ideal option for people who want to experience local culture.</p>
+	</li>
+	<li>
+	<p><strong>Airport Transfer:</strong> Customers can hire <strong>tempo traveller in Somnath</strong> for airport transfers in groups. Customers to travel to and fro from Diu Airport, which is the nearest airport to Somnath. Our reliable and efficient service ensures a hassle-free journey to or from the airport.</p>
+	</li>
+</ul>
+
+<h2>{{room.name}} price in Somnath</h2>
+
+<p>Shree Ram Tour &amp; Travels offers a very competitive <strong>tempo traveller price in Somnath</strong> of <strong>Rs. 33/km</strong>. The prices we charge are reasonable because of our high-quality services. The total invoice of our service is calculated on the basis of&nbsp; total number of kilometres travelled by the passengers during a particular journey. In addition to these, customers can carry their luggage free of cost making our service becomes even more convenient. Shree Ram Tour &amp; Travels is there to ensure that you have a comfortable and affordable journey.</p>
+
+<h2>How to book a {{room.name}} traveller on rent in Somnath?</h2>
+
+<p>Booking a <strong>{{room.name}} traveller on rent in Somnath</strong>&nbsp;is made easy with the presence of Shree Ram Tours &amp; Travels. To book, a user can easily visit its website and take the following steps:</p>
+
+<ul>
+	<li>
+	<p>Select a service from an outstation, local or airport transfer.&nbsp;</p>
+	</li>
+	<li>
+	<p>Choose a trip from one-way or round-trip.&nbsp;</p>
+	</li>
+	<li>
+	<p>Mention the starting and ending places in the blanks.&nbsp;</p>
+	</li>
+	<li>
+	<p>Write the date and time of travel.</p>
+	</li>
+	<li>
+	<p>Finally, click on &quot;Search room&quot; to view the options and complete your booking. Our user-friendly online platform will make booking hassle-free, and you can concentrate on your travel plans.</p>
+	</li>
+</ul>
+
+<h2>Why trust &ldquo;Shree Ram Tours &amp; Travels&rdquo; to hire Tempo travellers in Somnath?</h2>
+
+<p>For a delightful experience travelling through Somnath, your best choice is Shree Ram Tours &amp; Travels. We always focus on satisfying our customers so that the tiniest detail of their tour is taken care of in a perfect manner. At Shree Ram Tours &amp; Travels, you will get effortless bookings on <strong>tempo traveller hire in Somnath</strong>, secure commutes, clear prices with no extra hidden charges, and professionally driven courteous drivers who know about places. We promise comprehensive services that will give you highly hassle-free and convenient travel arrangements that let you focus more on creating unforgettable memories in Somnath.</p>
+
+<h2>Contact Shree Ram Tour &amp; Travels at +91-9879144147 to book a Tempo Traveller  on rent in Somnath</h2>
+
+<p>If you are looking for a reliable and spacious <strong><a href="https://shreeramtourtravels.co.in/contact-us">12-seater tempo traveller in Somnath</a>&nbsp;</strong>contact Shree Ram Tours &amp; Travels at the given number: <strong><a href="tel:9879144147">+91-9879144147</a></strong>. We provide a well-maintained and comfortable Tempo for your group travel needs. Our experienced drivers and 24/7 support ensure a safe and enjoyable journey. Call us now to book your Tempo Traveller and make your travel experience in Somnath truly unforgettable.</p>
+ <p></p>
+                    
+                    
+                    <div class="city_img">
+                                                        <img src="{% static 'assets/img/badsha_%281%291.webp' %}" alt>
+                    
+                  </div>
+                </div>
+               
+                                
+               
+                <div class="faqwrppr faq-content mt-3 mb-4">
+                      <h2>FAQs</h2>
+                      
+                      
+                      <div class="faq-accordion w-100">
+                                <ul class="accordion list-unstyled">
+                                                                        
+                                    <li class="accordion-item">
+                                        <a class="accordion-title active" href="javascript:void(0)">
+                                            <i class="bx bx-plus"></i>
+                                            1. Can I explore Somnath in a group?                                        </a>
+                                        <div class="accordion-content show">
+                                            <p>Yes, you can explore Somnath in a group by hiring a Tempo Traveller on rent by Shree Ram Tour & Travels. We provide 12-seater Tempos at affordable prices for group journeys.</p>
+                                        </div>
+                                    </li>
+                                                                         
+                                    <li class="accordion-item">
+                                        <a class="accordion-title " href="javascript:void(0)">
+                                            <i class="bx bx-plus"></i>
+                                            2. How to explore Gujarat with a group?                                        </a>
+                                        <div class="accordion-content ">
+                                            <p>You can explore the whole of Gujarat in a group by hiring a Tempo traveller 12 seater on rent in Somnath from Shree Ram Tour & Travels.</p>
+                                        </div>
+                                    </li>
+                                                                         
+                                    <li class="accordion-item">
+                                        <a class="accordion-title " href="javascript:void(0)">
+                                            <i class="bx bx-plus"></i>
+                                            3. How to book a Tempo in Somnath online?                                        </a>
+                                        <div class="accordion-content ">
+                                            <p>To book a Tempo in Somnath online, visit the website of Shree Ram Tour & Travels, choose a service, trip and write down the initial and final destination with date and time.</p>
+                                        </div>
+                                    </li>
+                                                                         
+                                    <li class="accordion-item">
+                                        <a class="accordion-title " href="javascript:void(0)">
+                                            <i class="bx bx-plus"></i>
+                                            4. What is the Tempo Traveller 12 seater price in Somnath?                                        </a>
+                                        <div class="accordion-content ">
+                                            <p>The Tempo Traveller 12 seater price in Somnath is Rs. 33/km.</p>
+                                        </div>
+                                    </li>
+                                                                         
+                                    <li class="accordion-item">
+                                        <a class="accordion-title " href="javascript:void(0)">
+                                            <i class="bx bx-plus"></i>
+                                            5. Can I book a Tempo Traveller in Somnath urgently?                                        </a>
+                                        <div class="accordion-content ">
+                                            <p>Yes, you can book a tempo traveller in Somnath urgently by calling Shree Ram Tour & Travels at this number: +91-9879144147.</p>
+                                        </div>
+                                    </li>
+                                                                     </ul>
+                        </div>
+                      
+                      <div class="accordion d-none" id="accordionExample">
+                                                    <div class="card">
+                                <div class="card-header" id="heading1">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="1" aria-controls="collapse1">
+                                      Can I explore Somnath in a group?                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    Yes, you can explore Somnath in a group by hiring a Tempo Traveller on rent by Shree Ram Tour & Travels. We provide 12-seater Tempos at affordable prices for group journeys.                                  </div>
+                                </div>
+                          </div>
+                                                     <div class="card">
+                                <div class="card-header" id="heading2">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded aria-controls="collapse2">
+                                      How to explore Gujarat with a group?                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapse2" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    You can explore the whole of Gujarat in a group by hiring a Tempo traveller 12 seater on rent in Somnath from Shree Ram Tour & Travels.                                  </div>
+                                </div>
+                          </div>
+                                                     <div class="card">
+                                <div class="card-header" id="heading3">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded aria-controls="collapse3">
+                                      How to book a Tempo in Somnath online?                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapse3" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    To book a Tempo in Somnath online, visit the website of Shree Ram Tour & Travels, choose a service, trip and write down the initial and final destination with date and time.                                  </div>
+                                </div>
+                          </div>
+                                                     <div class="card">
+                                <div class="card-header" id="heading4">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded aria-controls="collapse4">
+                                      What is the Tempo Traveller 12 seater price in Somnath?                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapse4" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    The Tempo Traveller 12 seater price in Somnath is Rs. 33/km.                                  </div>
+                                </div>
+                          </div>
+                                                     <div class="card">
+                                <div class="card-header" id="heading5">
+                                  <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded aria-controls="collapse5">
+                                      Can I book a Tempo Traveller in Somnath urgently?                                    </button>
+                                  </h2>
+                                </div>
+                                <div id="collapse5" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    Yes, you can book a tempo traveller in Somnath urgently by calling Shree Ram Tour & Travels at this number: +91-9879144147.                                  </div>
+                                </div>
+                          </div>
+                                                     <!--<div class="card">-->
+                          <!--      <div class="card-header" id="headingTwo">-->
+                          <!--        <h2 class="mb-0">-->
+                          <!--          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+                          <!--            What is included in the price ?-->
+                          <!--          </button>-->
+                          <!--        </h2>-->
+                          <!--      </div>-->
+                          <!--      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">-->
+                          <!--        <div class="card-body">-->
+                          <!--          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck -->
+                          <!--          quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh -->
+                          <!--          helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,-->
+                          <!--          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+                          <!--        </div>-->
+                          <!--      </div>-->
+                          <!--</div>-->
+                          <!--<div class="card">-->
+                          <!--      <div class="card-header" id="headingThree">-->
+                          <!--        <h2 class="mb-0">-->
+                          <!--          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">-->
+                          <!--            What happens if my flight is early or get delayed ? -->
+                          <!--          </button>-->
+                          <!--        </h2>-->
+                          <!--      </div>-->
+                          <!--      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">-->
+                          <!--        <div class="card-body">-->
+                          <!--          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat-->
+                          <!--          skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin -->
+                          <!--          coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan -->
+                          <!--          excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+                          <!--        </div>-->
+                          <!--      </div>-->
+                          <!--</div>-->
+                      </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-lg-4 col-12">
+                    <div class="fleet_form bg_y city_con">
+                        <form class="form_sub_fleet" action="https://shreeramtourtravels.co.in/Contact_us/sendmail" method="post">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-12">
+                                                                    <h3 class="text-center"> Get in touch </h3>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control lettersOnly" placeholder="Enter Your  Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <input type="text" name="mobile" class="form-control numbersOnly" maxlength="10" placeholder="Enter Your Phone">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <input type="hidden" name="url" value="https://shreeramtourtravels.co.in/12-seater-maharaja-tempo-traveller-hire-in-somnath">
+                                        <input type="hidden" name="pagename" value="12 Seater {{room.name}} Traveller hire in Somnath just @ Rs. 33/km| | Shree Ram Tour & Travels">
+                                        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                                        <textarea name="message" class="form-control address" placeholder="Your messages" style="width: 100%; height: 130px;" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                        <div class>
+                                           <input type="submit" class="sent_now" value="Send Now">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                       
+                                     <h4><i class="fa fa-phone"></i> +91-9879144147 </h4>
+                                    </div>
+
+
+                            </div>
+                        </form>
+
+                    </div>
+              
+            </div>
+        </div>
+    </section>
+
+
+<section class="taxihire_section mb-5">
+	<div class="container">
+		<div class="comn_heading popl_city">
+			<h3 class="wow text-center" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown
+                ;">
+					<span> Our Popular Fleets </span> </h3>
+			<!--<p class="m-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequuntur hic itaque</p>-->
+		</div>
+		<div class="project-slider ps_slide">
+			<div class="project-slider-area5  owl-carousel owl-theme">
+				{% for car in hotels %}
+				<div class="item">
+					<div class="pp_fleets">
+                        <img src="{{car.image.url}}" alt="room/Book room Online ">
+                        <span class="fleettag">₹{{ car.price }}/ KM</span>
+                    </div>
+                    <div class="fleettxt">
+						<h3>{{car.name}}</h3>
+						<!--<h6>₹12.00/ KM</h6>-->
+						<div class="flttxtbtn_wtsp">
+						    <a href="{{car.get_absolute_url}}" class="default-btn btn-bg-two border-radius-50"> Book Now</a>
+						    <a class="" href="https://wa.me/+919879144147">
+                                <div class="text-center chattxt">
+                                    <h5>Chat Now</h5>
+                                    <i class="fa fa-whatsapp color-whats"></i>
+                                </div>
+                            </a>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+
+							</div>
+		</div>
+	</div>
+</section>
+
+
+<style>
+.faretable table {
+  width: 100%;
+}
+
+.faretable th {
+  border-radius: 6px 6px 0px 0px;
+  border-bottom: 1px solid #98B0DE;
+  background: rgba(255, 204, 0, 0.30);
+  padding: 14px 20px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  border-right: 1px solid #98B0DE;
+  line-height: normal;
+  color: #000;
+}
+
+.faretable td {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 14px 20px;
+  border-bottom: 1px solid #98B0DE;
+  border-right: 1px solid #98B0DE;
+}
+
+td:last-child, th:last-child {
+  border-right: 0;
+}
+.cardlike.faretable {
+    overflow-y: auto;
+}
+.cardlike {
+    border-radius: 4px;
+    background: #FFF;
+}
+
+
+.faretable h3 {
+    padding:15px 10px 0;
+    color:#000;
+    font-size:22px;
+}
+
+.faqwrppr .accordion button {
+  color: #323C42;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+}
+.faqwrppr .accordion .card-header:after {
+    display: none;
+}
+
+.faqwrppr .card-header {
+    background: transparent;
+}
+
+.faqwrppr div#accordionExample {
+    border: 0;
+}
+
+.faqwrppr .card {
+    border: 0;
+}
+
+.faqwrppr .accordion>.card>.card-header {
+    margin-bottom: 0;
+}
+
+.btn-link.focus, .btn-link:focus {
+    text-decoration: none;
+}
+.btn.focus, .btn:focus { box-shadow:none;  }
+
+.routs-wrp {
+    background: #fff0e0;
+    padding: 15px;
+}
+
+.routs-wrp  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 13px;
+    list-style: none;
+    padding: 0;
+}
+
+.routs-wrp ul li a {
+    font-size: 14px;
+    color: #000;
+}
+
+.routs-wrp ul li {
+    position: relative;
+    padding: 0px 5px;
+    flex: 0 0 32%;
+}
+
+.routs-wrp ul li:after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #000;
+}
+
+
+
+
+</style>
+
+ <script>
+        $(document).ready(function() {
+            $('.accordion-title').on('click', function() {
+                var content = $(this).next('.accordion-content');
+                $('.accordion-content').not(content).slideUp(200).removeClass('show');
+                content.slideToggle(200).toggleClass('show');
+                $('.accordion-title').not(this).removeClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script><div class="ft_up">
+{% include 'footer.html' %}
+   </body>
+</html>

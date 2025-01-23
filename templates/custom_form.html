@@ -1,0 +1,295 @@
+<div class="tab-card custm_searchh">
+  <div class="buzz_header">
+    <ul class="nav nav-tabs " id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="outstation-tab" data-toggle="tab" href="#outstation" role="tab" aria-controls="outstation-tab" aria-selected="true">
+          <i class="material-icons">location_city</i>Outstation</a>
+      </li>
+      <li class="nav-item" onclick="showlocal();">
+                                              <a class="nav-link " id="local-tab" onclick="tabcheck();return false;" data-toggle="tab" href="#local" role="tab" aria-controls="local" aria-selected="false">
+          <i class="material-icons">directions_car</i>
+        Local </a>
+      </li>
+      <li class="nav-item" onclick="showlocal();">
+                     <a class="nav-link " id="transfer-tab" onclick="tabcheck();return false;" data-toggle="tab" href="#transfer" role="tab" aria-controls="local" aria-selected="false">
+          <i class="material-icons">directions_car</i>
+        Airport Transfer </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content tb_con" id="myTabContent">
+    <div class=" tab-pane fade show active " id="outstation" role="tabpanel" aria-labelledby="outstation-tab">
+      <nav class="tab_cen">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="one-way-tab" data-toggle="tab" href="#one-way" role="tab" aria-controls="one-way" aria-selected="true">One Way</a>
+          <!--<a class="nav-item nav-link " id="round-trip-tab" data-toggle="tab" href="#round-trip"-->
+          <!--	role="tab" aria-controls="round-trip" aria-selected="false">Round Trip</a>-->
+           <a class="nav-item nav-link " id="multi-city-tab" data-toggle="tab" href="#multi-city" role="tab" aria-controls="multi-city" aria-selected="false">Round Trip</a> 
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
+          <div class="room_search">
+            <div class="container">
+                                                                       <form method="get" action="/search_result">
+              <div class="row">
+
+                <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                                                                      <input type="text" name="source"  value class="form-control" placeholder="From City">
+                  <i class="material-icons">
+                    room
+                  </i>
+                </div>
+                <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                                                                      <input type="text" name="destination"  value class="form-control" placeholder="To City">
+                  <i class="material-icons">
+                    room
+                  </i>
+                </div>
+
+                <div class="col-md-6 col-12 col-lg-6 pr-0 mb_10">
+                                                                                      <input class="form-control datetimepickerON" name="pickupdate" required id="datepicker" value="2025-01-14" type="text" placeholder="Choose Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+                </div>
+                <div class="col-md-6 col-12 col-lg-6 mb_10">
+
+                                                                                      <input name="pickuptime" class="form-control br-none timeON"  id="datetimepickernew" type="text" placeholder="Choose Time" data-dtp="dtp_9bkxX"> 
+                                                                                      <i class="material-icons"> schedule </i>
+                </div>
+                                                                              <input type="hidden" name="triptype" value="oneway">
+                                                                              <input type="hidden" name="tripmode" value="oneway">
+                                                                              <input type="hidden" name="ptype" value="rent">
+                <div class="col-md-12 col-12 col-lg-12 ">
+                  <input type="submit" class="default-btn btn-bg-two border-radius-50" value="Search room">
+                </div>
+
+              </div>
+                                                                  </form>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade " id="round-trip" role="tabpanel" aria-labelledby="round-trip-tab">
+          <div class="room_search room_100">
+            <div class="container">
+                                                                      <form method="get" action="/search_result">
+              <div class="row">
+
+                <div class="col-lg-12 mb_10">
+                                                                                      <input type="text" name="source" id="location100" required value class="form-control" placeholder="From City">
+                  <i class="material-icons">
+                    room
+                  </i>
+                </div>
+                <div class="col-lg-12 mb_10">
+                                                                                      <input type="text" name="destination" id="location" required value class="form-control" placeholder="To City">
+                  <i class="material-icons">
+                    room
+                  </i>
+                </div>
+
+                <div class="col-lg-4 pr-0 mb_10">
+                                                                                      <input class="form-control dateOU" name="pickupdate" id="datepicker3" required value="2025-01-14" type="text" placeholder="Start Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+                </div>
+                <div class="col-lg-4 pr-0 mb_10">
+                                                                                      <input name="pickuptime" class="form-control br-none timeOU" required  id="datetimepickernew1" type="text" placeholder="Choose Time" data-dtp="dtp_9bkxX"> <i class="material-icons"> schedule </i>
+
+                </div>
+                <div class="col-lg-4 mb_10">
+                                                                                      <input class="form-control" name="returndate" id="datepicker4" required value="14/01/2025" type="text" placeholder="End Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+                </div>
+                                                                              <input type="hidden" name="triptype" value="outstation">
+                                                                              <input type="hidden" name="tripmode" value="roundtrip">
+                                                                              <input type="hidden" name="ptype" value="rent">
+                <div class="col-md-12 col-12 col-lg-12 ">
+                  <input type="submit" class="default-btn btn-bg-two border-radius-50" value="Search room">
+                </div>
+
+              </div>
+                                                                      </form>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade " id="multi-city" role="tabpanel" aria-labelledby="multi-city-tab">
+          <div class="room_search room_100">
+            <div class="container">
+                                                                      <form method="get" action="/search_result">
+              <div class="row">
+
+                <div class="col-lg-12 mb_10">
+                                                                                      <input type="text" name="source"  required value class="form-control" placeholder="From City">
+                  <i class="material-icons">
+                    room
+                  </i>
+                </div>
+                <div class="col-lg-12 mb_10">
+                  <div class="city_records">
+                                                                                              <input type="text" name="destination[]" required value  class="form-control" placeholder="To City">
+                  </div>
+                  <i class="material-icons">
+                    room
+                  </i>
+                  <a class="extra-fields-city heading-add" href="#" id="airids"> <span class="material-icons f-16">
+                      add
+                    </span> Add More City</a>
+                                                                                      <div class="city_records_dynamic">
+                                                                                                                                                                                       </div>
+                </div>
+
+                <div class="col-lg-4 mb_10 pr-0">
+                                                                                      <input class="form-control dateMC" name="pickupdate" required value id="datepicker5" type="text" placeholder="Start Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+                </div>
+                <div class="col-lg-4 mb_10 pr-0">
+                                                                                                  
+                                                                                                  <input name="pickuptime" class="form-control br-none timeMC" id="datetimepickernew2" type="text" placeholder="Choose Time" data-dtp="dtp_9bkxX">
+<i class="material-icons"> schedule </i>
+                </div>
+                <div class="col-lg-4 mb_10">
+                                                                                      <input class="form-control" name="returndate" required value="14-01-2025" id="datepicker6" type="text" placeholder="End Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+                </div>
+                                                                              <input type="hidden" name="triptype" value="outstation">
+                                                                              <input type="hidden" name="tripmode" value="multicity">
+                                                                              <input type="hidden" name="ptype" value="outstation">
+                                                                              
+                <div class="col-md-12 col-12 col-lg-12 ">
+                  <input type="submit" class="default-btn btn-bg-two border-radius-50" value="Search room">
+                </div>
+
+              </div>
+                                                                      </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+  </div>
+    
+    
+      <div class=" tab-pane fade  " id="transfer" role="tabpanel" aria-labelledby="transfer-tab">
+    
+      <div class="room_search room_100">
+            <div class="container">
+                           <form method="get" action="/search_result">
+          <div class="row">
+
+            <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                 <input type="text" name="source" required onblur="searchtransfer(this.value)" value class="form-control transcity" placeholder="Pickup City">
+              <i class="material-icons">
+                room
+              </i>
+            </div>
+            <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                  <select name="pickuptype" required class="form-control">
+                                          <option value="Pickup">Pickup  </option>
+                                          <option value="Drop">Drop  </option>
+                                           
+              </select>
+              <i class="material-icons">
+                room
+              </i>
+            </div>
+            <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                                                      <select name="destination" id="transpackage" required class="form-control">
+                                                                              <option  value>Select Airport </option>
+                                                                              <option value="Pickup">Sardar Vallabhbhai Patel International Airport, Ahmedabad</option>
+                                                                              <option value="Pickup">Surat International Airport, Surat</option>
+                                                                              <option value="Pickup">Vadodara Airport, Vadodara</option>
+                                                                              <option value="Pickup">Bhavnagar Airport, Bhavnagar</option>
+                                                                              <option value="Pickup">Rajkot Airport, Rajkot</option>
+                                                                              <option value="Pickup">Diu Airport, Diu</option>
+                                                                              <option value="Pickup">Kandla Airport, Kandla</option>
+                                                                              <option value="Pickup">Jamnagar Airport, Jamnagar</option>
+                                                                              <option value="Pickup">Porbandar Airport, Porbandar</option>
+                                                                              <option value="Pickup">Bhuj Airport, Bhuj</option>
+
+                                                                                                   </select>
+              <i class="material-icons">
+                room
+              </i>
+            </div>
+
+            <div class="col-md-6 col-12 col-lg-6 pr-0 mb_10">
+                                                                      <input class="form-control dateTF" name="pickupdate" required value="14/01/2025" id="datepicker2" type="text" placeholder="Choose Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+            </div>
+            <div class="col-md-6 col-12 col-lg-6 mb_10">
+                                                                      
+                                                                      <input name="pickuptime" class="form-control br-none timeTF"  id="datetimepickernew4" type="text" placeholder="Choose Time" data-dtp="dtp_9bkxX"> <i class="material-icons"> schedule </i>
+            </div>
+                                                                      <input type="hidden" name="triptype" value="airport transfer">
+                                                                      <input type="hidden" name="tripmode" value="transfer">
+                                                                      <input type="hidden" name="ptype" value="rent">
+            <div class="col-md-12 col-12 col-lg-12 ">
+              <input type="submit" class="default-btn btn-bg-two border-radius-50" value="Search room">
+            </div>
+
+          </div>
+                                                       </form>
+            </div>
+          </div>
+    </div>
+                              
+                              
+                              <!--Local--> 
+                              <div class="tab-pane fade  " id="local" role="tabpanel" aria-labelledby="local">
+    
+      <div class="tab-content" id="nav-tabContent1">
+        <div class="room_search">
+            <div class="container">
+                                                                       <form method="get" action="/search_result">
+          <div class="row">
+            <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                                                                           <select name="source" class="form-control localcity" onblur="searchlocal(this.value);">
+<option value selected="selected">-- Select Local Package--</option>
+{% for pack in package %}
+<option value="{{ pack.name }}"> {{ pack.name }} </option>
+{% endfor %}
+</select>
+              <i class="material-icons">
+                room
+              </i>
+            </div>
+            <div class="col-md-12 col-12 col-lg-12 mb_10">
+                                                                      <select name="package" id="localpackage" required class="form-control">
+                                                                              <option value>Select Price/Kms </option>
+
+                                                                              {% for p in hotels %}
+                                                                              {% if 'traveller' not in p.name|lower %}
+                                                                                  <option value="{{ p.price }}"> {{ p.name }} - {{ p.price }}/KM </option>
+                                                                              {% endif %}
+                                                                          {% endfor %}
+                                                                                                  </select>
+              <i class="material-icons">
+                room
+              </i>
+            </div>
+            <div class="col-md-6 col-12 col-lg-6 pr-0 mb_10">
+                                                                      <input class="form-control dateLL" name="pickupdate" required value="14-01-2025" id="datepicker1" type="text" placeholder="Choose Date" data-dtp="dtp_te2B6"> <i class="material-icons">event</i>
+            </div>
+            <div class="col-md-6 col-12 col-lg-6 mb_10">
+                                                                      <input name="pickuptime" class="form-control br-none timeLL"  id="datetimepickernew3" type="text" placeholder="Choose Time" data-dtp="dtp_9bkxX"> <i class="material-icons"> schedule </i>
+            </div>
+                                                                      <input type="hidden" name="triptype" value="local">
+                                                                      <input type="hidden" name="tripmode" value="local">
+                                                                      <input type="hidden" name="ptype" value="local">
+
+            <div class="col-md-12 col-12 col-lg-12">
+              <input type="submit" class="default-btn btn-bg-two border-radius-50" value="Search room">
+            </div>
+          </div>
+                                                           </form>
+
+            </div>
+          </div>
+        
+      </div>
+    </div>
+                              <!--Local-->
+                              
+    
+    
+
+  </div>
+</div>

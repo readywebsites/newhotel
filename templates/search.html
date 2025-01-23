@@ -1,0 +1,551 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'header.html' %}
+
+<body><div class="main fixed-top">
+     
+    {% include 'nav.html' %}
+
+  
+</div><style>
+	.buzz_header {
+	    margin-top: -0px;
+	    position: relative;
+	    z-index: 9;
+	}#myTabContent {
+	    background: #042461!important;
+	    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+	}
+        #loader_cen {
+    background-image: url(https://shreeramtourtravels.co.in/uploads/loader.gif);
+}
+.pdd{
+    padding: 5px 5px 5px 25px;
+    }
+    .mbot{
+        margin-bottom: 5px;
+    }
+  .mn_h {
+    font-size: 15px;
+}
+</style>
+<section class="buzz_search_new">
+	<div class="container">
+		<div class="room_search room_100 search_new_form">
+			<div class="container-auto">
+				</div>
+		</div>
+	</div>
+</section>
+  <section class="sl_list">
+	<div class="container">
+	<div class="searh_hedr">
+		<div class="row">
+			<div class="col-md-2 mb_wdt">
+					<div class="row dflx">
+							<div class="col-md-1">
+									<i class="material-icons">pin_drop</i>
+							</div>
+							<div class="col-md-8">
+									<span class="mn_h">Booking Type</span><br>
+									<span class="rslttxt">{{ ptype|default:"Outstation Usage" }}</span>
+							</div>
+					</div>
+			</div>
+	
+			<div class="col-md-3 mb_wdt">
+					<div class="row dflx">
+							<div class="col-md-1">
+									<i class="material-icons">today</i>
+							</div>
+							<div class="col-md-8">
+									<span class="mn_h">Pick-up-Date &amp; Time</span><br>
+									<span class="rslttxt">{{ formatted_pick_date_time|default:"22-01-2025 05:49 PM" }}</span>
+							</div>
+					</div>
+			</div>
+	
+			<div class="col-md-2 time_mobile mb_wdt">
+					<div class="row dflx">
+							<div class="col-md-1">
+									<i class="material-icons">query_builder</i>
+							</div>
+							<div class="col-md-8">
+									<span class="mn_h">Duration</span><br>
+									<span class="rslttxt">
+											{% if duration %}
+													{{ duration }} day(s)
+											{% else %}
+													{{ "Duration unavailable" }}
+											{% endif %}
+									</span>
+							</div>
+					</div>
+			</div>
+	
+			<div class="col-md-3 mb_wdt">
+					<div class="row dflx">
+							<div class="col-md-1">
+									<i class="material-icons">directions</i>
+							</div>
+							<div class="col-md-9">
+									<span class="mn_h">Trip Type</span><br>
+									<span class="rslttxt">{{ triptype|default:"Multicity" }}</span>
+							</div>
+					</div>
+			</div>
+	</div>
+	
+
+		
+	
+            </div>
+
+          
+						{% for car in hotels %}
+						<div class="sl_list_box">
+								<div class="row">
+										<!-- Car Image and Name -->
+										<div class="col-md-5">
+												<div class="row mob_col_reverse">
+														<div class="col-md-5 col-lg-5 car_img1">
+																<img src="{{ car.image.url }}" style="width: 148px; height: 127px;" alt>
+														</div>
+														<div class="col-md-7 col-lg-7 crname">
+																<h2>{{ car.name }}</h2>
+																<h4>{{ car.type }}</h4>
+														</div>
+												</div>
+										</div>
+				
+										<!-- Facilities -->
+										<div class="col-md-4 col-lg-4 col-12 sl_h">
+												<h6>Facilities:</h6>
+												<div class="fc">
+														<img src="{% static 'assets/img/water.png' %}" alt>
+														<p>Water Bottle</p>
+												</div>
+												<div class="fc">
+														<img src="{% static 'assets/img/on-time.png' %}" alt>
+														<p>On Time Guarantee</p>
+												</div>
+												<div class="fc">
+														<img src="{% static 'assets/img/GST.png' %}" alt>
+														<p>Invoice Gst</p>
+												</div>
+												<div class="fc">
+														<img src="{% static 'assets/img/sanitizer.png' %}" alt>
+														<p>Sanitized room</p>
+												</div>
+										</div>
+				
+										<!-- Fare per KM -->
+										<div class="col-md-2 col-lg-1 col-3 rat">
+												<h6>Fare/ KM</h6>
+												<button>₹ {{ car.price }}</button>
+										</div>
+				
+										<!-- Booking Section -->
+										<div class="col-md-2 col-lg-2 col-12">
+												<div class="bok_n bg-la">
+														<div class="frdtl">
+																<h3>
+																		<span id="calculated-fare-{{ car.id }}"></span>
+																</h3>
+																<p onclick="getFareDetails({{ car.price }}, 300, '{{ car.name }}', {{ duration|default:0 }}, {{ car.id }})">
+																		Fare Details <i class="fa fa-angle-double-right"></i>
+																</p>
+														</div>
+														<div class="bukbtn">
+																<a onclick="getmobile('013d407166ec4fa56eb1e1f8cbe183b9'); return false;" href="#">Select room</a>
+														</div>
+												</div>
+										</div>
+								</div>
+						</div>
+						{% endfor %}
+						<style>
+							/* Modal and Overlay Styling */
+							#fareModal {
+									position: fixed;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									background: #fff;
+									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+									border-radius: 10px;
+									width: 90%;
+									max-width: 400px;
+									z-index: 1000;
+									padding: 20px;
+									font-family: Arial, sans-serif;
+									color: #333;
+							}
+							
+							#fareModal h3 {
+									color: #ff5722;
+									margin-bottom: 10px;
+							}
+							
+							#fareModal p {
+									margin: 5px 0;
+									font-size: 14px;
+									color: #333;
+							}
+							
+							#fareModal button {
+									margin-top: 10px;
+									background-color: #ff5722;
+									color: #fff;
+									border: none;
+									border-radius: 5px;
+									padding: 10px 20px;
+									cursor: pointer;
+							}
+							
+							#fareModal button:hover {
+									background-color: #e64a19;
+							}
+							
+							#fareModalOverlay {
+									position: fixed;
+									top: 0;
+									left: 0;
+									width: 100%;
+									height: 100%;
+									background: rgba(0, 0, 0, 0.5);
+									z-index: 999;
+							}
+							</style>
+							
+							<script>
+								document.addEventListener("DOMContentLoaded", function () {
+										// Calculate and display fare for each car on page load
+										{% for car in hotels %}
+										(function () {
+												var pricePerKm = {{ car.price }};
+												var distance = 300; // Default distance
+												var duration = {{ duration|default:0 }}; // Default duration if not provided
+												var totalFare = pricePerKm * distance;
+								
+												if (duration > 0) {
+														totalFare *= duration;
+												}
+								
+												// Update the span with the calculated fare
+												document.getElementById('calculated-fare-{{ car.id }}').innerHTML = '₹ ' + totalFare;
+										})();
+										{% endfor %}
+								});
+								
+								function getFareDetails(pricePerKm, distance, carName, duration, carId) {
+										var totalFare = pricePerKm * distance;
+								
+										// Multiply the fare by the duration if provided
+										if (duration > 0) {
+												totalFare *= duration;
+										}
+								
+										// Modal content
+										var modalContent = `
+												<div>
+														<h3>Fare Calculation for ${carName}</h3>
+														<p><strong>Distance:</strong> ${distance} KM</p>
+														<p><strong>Price per KM:</strong> ₹${pricePerKm}</p>
+														<p><strong>Total Fare:</strong> ₹${totalFare}</p>
+														${
+																duration > 0
+																		? `<p><strong>Duration:</strong> ${duration} day(s)</p>`
+																		: `<p><strong>Duration:</strong> Not Specified</p>`
+														}
+												</div>
+										`;
+								
+										// Create and style the modal
+										var modal = document.createElement('div');
+										modal.id = 'fareModal';
+										modal.innerHTML = modalContent;
+								
+										var closeButton = document.createElement('button');
+										closeButton.textContent = 'Close';
+										closeButton.onclick = function () {
+												document.getElementById('fareModal').remove();
+												document.getElementById('fareModalOverlay').remove();
+										};
+										modal.appendChild(closeButton);
+								
+										// Overlay background
+										var overlay = document.createElement('div');
+										overlay.id = 'fareModalOverlay';
+										overlay.onclick = function () {
+												document.getElementById('fareModal').remove();
+												this.remove();
+										};
+								
+										document.body.appendChild(overlay);
+										document.body.appendChild(modal);
+								}
+								</script>
+									
+						
+            
+	</div>
+
+</section>
+
+
+<div id="loader" style="display:none;">
+
+	<div id="loader_cen">&nbsp;</div>
+
+</div>
+
+<script type="text/javascript">
+
+    function getmobile(id){
+
+        $('#getid').val(id);
+
+       $('#mobilenoget').modal('show');
+
+    }
+
+    
+
+    
+
+	function getfaredetails(postdta,id){
+
+	    var options = {
+
+	        "backdrop" : "static",
+
+	        "show":true
+
+	       }
+
+	    $.ajax({
+
+	            type: "POST",
+
+	             url: "https://shreeramtourtravels.co.in/ajax/Faresummary",
+
+	            data: "tableid="+postdta ,
+
+	       beforeSend: function() { $('#m'+id).attr("disabled", "disabled"); },
+
+	            success: function (data) { 
+
+	       $('#fare').modal(options);
+
+	       $('#loadfare').html( data );
+
+	       $('#m'+id).removeAttr ("disabled", true );
+
+	        }
+
+	        });
+
+	   }
+
+</script>
+
+
+
+
+
+<div class="modal fade" id="mobilenoget" tabindex="-1" role="dialog" aria-labelledby="otpTitle" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-heade apy_head md_close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body forgot_body rating_body book_popup">
+                    <div class="se_box">
+                     <form action="https://shreeramtourtravels.co.in/checkout/" method="post">
+                         <div class="pop-box">
+			                <div class="pop-box1">
+			                    <div class="white-box">
+				                    <div class="off-box">
+				                        <div class="off-box1">
+				                            <div class="row">
+				                            <div class="col-lg-12 col-md-12 col-xs-12">
+				                            <p>Book your outstation ride with Go Call Taxi and enjoy exclusive offers! Travel in comfort with our reliable service, now at discounted rates. Don't miss out – grab your offer today and experience a hassle-free journey!</p>
+				                            </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                     			                    </div>
+			                    <div class="form-inputgroup">
+			                        <h3>Get extra Discount on Round Trips room Hire</h3>
+			                        <div class="form-gro">
+			                         <input type="hidden" name="pid" id="getid" value>
+
+			                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onkeydown="if(this.value.length==10 &amp;&amp; event.keyCode!=8) return false;" name="mobile" class="form-control" placeholder="Enter Mobile Number">
+			                        </div>
+			                        <div class="form-gro">
+			                           <input type="submit" class="submit_d" name="submit" value="Submit">
+			                        </div>
+			                    </div>
+			                </div>
+			             </div>
+                     </form>
+                        <!--<a href="#" data-dismiss="modal" aria-label="Close">skip</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="fare" tabindex="-1" role="dialog" aria-labelledby="otpTitle" aria-hidden="true">
+
+	<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+
+		<div class="modal-content ">
+
+			<div class="modal-heade close_btn_pop">
+
+				<h2>Fare Summary</h2>
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+
+				</button>
+
+			</div>
+
+			<div class="modal-body forgot_body ">
+
+				<div class="row">
+
+					<div class="col-12 col-lg-12 col-md-12 fare-area" id="loadfare"></div>
+
+					</div>
+
+				<div class="row  fare-area">
+
+					<div class="col-lg-12">
+
+                                             
+                                         
+                                            <h4 class="notesclas">Inclusion :</h4>
+
+						<ul>
+
+                                                   
+							<li>
+
+								Vehicle and fuel charges included
+							</li>
+
+                                                        
+                                                    
+
+						</ul>	
+
+                                            
+                                             
+                                            <h4 class="notesclas">Exclusion :</h4>
+
+						<ul>
+
+                                                    
+							<li>
+
+								Tolls, Parkings  and state taxs charges extra if appliroomle
+							</li>
+
+                                                        
+							<li>
+
+								Kms &amp;amp; Time will be count from office to office
+							</li>
+
+                                                        
+							<li>
+
+								Driver Night Allowance Rs.300/- will be appliroomle after 10PM - 06AM
+							</li>
+
+                                                        
+							<li>
+
+								5% GST excluded from Fare If Required Pay additional
+							</li>
+
+                                                        
+						</ul>
+
+                                             
+                                            
+                                            <h4 class="notesclas">Notes :</h4>
+
+						<ul>
+
+                                                        
+							<li>
+
+								Your Trip has a KM & Time  limit. If your usage exceeds this limit, you will be charged for the excess KM & Time used.
+							</li>
+
+                                                        
+							<li>
+
+								You will receive the chauffeur details in your email & sms at least 2 hours prior to the pick up time
+							</li>
+
+                                                        
+							<li>
+
+								AC will remain switch off in hill areas
+							</li>
+
+                                                        
+							<li>
+
+								Please ensure you have covered all cities you plan to visit in your itinerary. This will help our driver prepare accordingly. Adding city to the itinerary during trip may not be possible
+							</li>
+
+                                                        
+						</ul>
+
+                                            
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+    $(window).on('load', function() { // makes sure the whole site is loaded 
+
+      $('#loader_cen').fadeOut(); // will first fade out the loading animation 
+
+      $('#loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+
+      $('body').delay(350).css({'overflow':'visible'});
+
+    })
+
+          </script>
+{% include 'footer.html' %}
+   </body>
+</html>

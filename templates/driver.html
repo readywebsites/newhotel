@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'header.html' %}
+<body><div class="main fixed-top">
+     
+    {% include 'nav.html' %}
+  
+</div><script src="{% static 'assets/js/api_1.js' %}"></script>
+<script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LeN_wEaAAAAAOf22fit2F0lb1HiVl3Cy5UDUIXD', { action: 'contact' }).then(function (token) {
+                var recaptchaResponse = document.getElementById('recaptchaResponse');
+                recaptchaResponse.value = token;
+            });
+        });
+    </script> 
+<div class="bred_crumb">
+	<img src="{% static 'assets/img/room_banner.jpg' %}" alt>
+	<h1> Join as a Driver </h1>
+	<h4> <a href="https://shreeramtourtravels.co.in/"> Home </a> <i class="fa fa-angle-right"></i> Join as a Driver</h4>
+</div>
+<section class="container abt_us career">
+	<div class="row">
+		<div class="col-md-6 col-lg-6 col-12  ">
+			<div class="abt_txt why_c">
+				<h1 class="wow" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown
+                                ;">Join Shree Ram Tour and Travels service </h1>
+            <h2 class="wow" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown
+                                ;">Start Earning Now !!! </h2>
+				<h3 class="wow" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInDown ;">
+                  By Attaching Your Car with Shree Ram Tour and Travels</h3>
+				<p class="wow" data-wow-duration="1s" data-wow-delay="0.6s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInDown
+                                ;">Increase you’re earning Attach your car and make the most of your resources, avail the best offers in the industry, experience the cutting edge technology and start earning bigger than ever of course with the largest growing network of active riders. 
+Here we believe in camaraderie, we believe in sharing that's why we can offer the best. And we are proudly doing the same. If you have a car/taxi and you want to earn big amount, what are you waiting for! Let's go hand in hand. </p>
+				 <h2 class="wow" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown
+                                ;">Cash out fast in your account </h2>
+            <p>It’s easy to get paid. All you need is a bank account. Your earnings are transferred every week I your account </p>
+        	<p>If your customer payment in cash 
+With cash payment, you get paid immediately after you complete a trip. The app will show the amount to collect from your customer and calculate fees that you owe to Shree Ram Tour and Travels 
+</p>
+            
+        </div>
+		</div>
+    
+		<div class="col-md-6 col-lg-6 col-12">
+			<div class=" wow" style="visibility: visible;  animation-name: fadeInDown
+">
+				<div class="fleet_form bg_y">
+					<form action="https://shreeramtourtravels.co.in/Driver/save" method="post" class="form_sub_fleet">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-12">
+																	<h3 class="text-center"> Get in touch </h3>
+							</div>
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+									<input type="hidden" name="pagename" value="Enquiry">
+									<input type="hidden" name="url" value="https://shreeramtourtravels.co.in/driver">
+									<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                                                                        <input type="text" name="name" class="form-control lettersOnly" required placeholder="Enter Your  Name">
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+									<input type="text" name="email" class="form-control" placeholder="Enter Your E-Mail">
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+                                                                    <input type="text" name="mobile" class="form-control numbersOnly" required maxlength="10" placeholder="Enter Your Phone">
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+									<select name="cityId" class="form-control">
+										<option value selected>Choose City</option>
+																				<option value="227">
+											Ahmedabad										</option>
+																				<option value="233">
+											Diu										</option>
+																				<option value="231">
+											Dwarka										</option>
+																				<option value="232">
+											Jamnagar										</option>
+																				<option value="230">
+											Keshod										</option>
+																				<option value="229">
+											Sasan Gir										</option>
+																				<option value="226">
+											Somnath										</option>
+																				<option value="228">
+											Veraval										</option>
+																			</select>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class="form-group">
+									<select name="vehicleId" class="form-control">
+										<option value selected>Choose Vehicle Type</option>
+																				<option value="26">
+											1X1 Maharaja Tempo 										</option>
+																				<option value="25">
+											Force Urbania										</option>
+																				<option value="27">
+											Maharaja Tempo Traveller 14 seater										</option>
+																				<option value="28">
+											Maharaja Tempo Traveller 17 seater										</option>
+																				<option value="29">
+											Maharaja Tempo Traveller 20 seater										</option>
+																				<option value="30">
+											Maharaja Tempo Traveller 26 seater										</option>
+																				<option value="21">
+											Maruti Ertiga										</option>
+																				<option value="20">
+											Swift Dzire										</option>
+																				<option value="31">
+											Tempo Traveller										</option>
+																				<option value="24">
+											Toyota Innova 										</option>
+																				<option value="23">
+											Toyota Innova Crysta										</option>
+																				<option value="22">
+											Toyota Rumion										</option>
+																			</select>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-12">
+								<div class>
+									<input type="submit" class="sent_now" value="Send Now">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="career_opp1" style="margin-bottom: 14px;">
+	<div class="container">
+		<h1>For More in to join Shree Ram Tour and Travels room Call @ +91-9879144147</h1>
+	</div>
+</section>
+
+
+
+<section class="career_opp1">
+	<div class="container">
+		<h1 class="text-center"> Freedom From Work Daily Payments</h1>
+		<h3> are just a few reasons why our partner love us</h3>
+		<div class="career_ps">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-12">
+					<div class="wow career_box " data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
+						<img src="{% static 'assets/img/business.png' %}" alt>
+						<p>Start of Business Same Day</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12">
+					<div class="wow career_box" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
+						<img src="{% static 'assets/img/rs.png' %}" alt>
+						<p>Daily Payments 365 Days</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12">
+					<div class="wow career_box" data-wow-duration="1s" data-wow-delay="0.6s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
+						<img src="{% static 'assets/img/time.png' %}" alt>
+						<p>Choose Your Own Working Hours</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12">
+					<div class="wow career_box" data-wow-duration="1s" data-wow-delay="0.8s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
+						<img src="{% static 'assets/img/location.png' %}" alt>
+						<p>Choose from 65+ Cities to Work in</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12">
+					<div class="wow career_box" data-wow-duration="1s" data-wow-delay="1.0s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
+						<img src="{% static 'assets/img/helpline.png' %}" alt>
+						<p>24*7 Helpline For Your Support</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12">
+					<div class="wow career_box" data-wow-duration="1s" data-wow-delay="1.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: zoomIn;">
+						<img src="{% static 'assets/img/car_icon.png' %}" alt>
+						<p>Get your booking your way home</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="career_opp1  testimon bg_f">
+	<div class="container">
+		<h1 class="wow" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown;"> Why They Love US
+		<div class="project-slider cl_test">
+			<div class="clint_test_slide owl-carousel owl-theme">
+							</div>
+		</div>
+	</h1></div>
+</section>
+
+{% include 'footer.html' %}
+   </body>
+</html>

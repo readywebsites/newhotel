@@ -1,0 +1,650 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'header.html' %}
+
+<body>
+ 
+    <script type="text/javascript">
+    $( function() {
+    var localcity = {"data":0};
+    $(".localcity").autocomplete({source: localcity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".localcity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );
+    
+  $( function() {
+    var outcity = [{"id":"226","label":"Somnath"},{"id":"227","label":"Ahmedabad"},{"id":"233","label":"Diu"},{"id":"231","label":"Dwarka"},{"id":"232","label":"Jamnagar"},{"id":"230","label":"Keshod"},{"id":"229","label":"Sasan Gir"},{"id":"228","label":"Veraval"}];
+    $(".outcity").autocomplete({source: outcity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".outcity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );  
+  
+  $( function() {
+    var transcity = {"data":0};
+    $(".transcity").autocomplete({source: transcity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".transcity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } ); 
+   $( function() {
+    var onecity = {"data":0};
+    $(".onecity").autocomplete({source: onecity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".onecity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );  
+    
+    $( function() {
+    var radiocity = {"data":0};
+    $(".radiocity").autocomplete({source: radiocity,messages: {noResults: '',results: function() {}}, select: function(e, ui) { e.preventDefault() 
+
+    $(".radiocity").val(ui.item.label); return false;},focus: function(e, ui) {e.preventDefault(); return false; }, autoFocus:true, minLength:0, delay:0,  });
+  } );  
+    
+
+
+  
+function initAutocomplete(){ 
+$("input[id*='location']").each(function() {
+autocomplete = new google.maps.places.Autocomplete((this));   
+autocomplete.setComponentRestrictions({ 'country': 'IN' });
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+});
+});
+}
+
+
+</script> 
+
+<div class="main fixed-top">
+     
+{% include 'nav.html' %}
+  
+</div><!---Header Page-->
+<div class="banner-block1">
+   <!-- <img src="https://shreeramtourtravels.co.in/assets/frontuser/images/banner.webp"> -->
+</div>
+<style>.center_search {
+    background-image: url({% static 'assets/img/check_list_final.jpg' %});
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}</style>
+<div class="center_search">
+	<div class="container-fluid">
+		<div class="form-center">
+			<div class="row">
+				 <div class="col-lg-12 col-xs-12 col-md-12 bnnr_top_txt">
+				      <h3 class="relble">Quick &amp; Safe and Budget room <br>
+				     
+				      </h3>
+				     
+				  </div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-6 col-12">
+					<div class="center_txt d_none">
+						<h2 class="wow" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown
+                            ;"> Search Best room Now
+							</h2>
+						<h2 class="wow" data-wow-duration="1s" data-wow-delay="0.5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInDown
+                            ;">Quick, Simple & Easy</h2>
+						<p class="wow" data-wow-duration="1s" data-wow-delay="0.8s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInDown
+                            ;">Safety Assured, Lowest Fare</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-12 wow">
+					 <img src="{% static 'assets/img/about.webp' %}" style="opacity:0;" alt="Shree Ram Tour and Travels">					
+					<!-- <img src="{% static 'assets/img/bann_fin.jpg' %}" style="opacity:0;" alt="Shree Ram Tour and Travels">					 -->
+               <!--  <img style="" src="https://shreeramtourtravels.co.in/assets/frontuser/images/car_b.webp" srcset="https://shreeramtourtravels.co.in/assets/frontuser/images/car_b.webp 480w, https://shreeramtourtravels.co.in/assets/frontuser/images/car_b.webp 1080w" sizes="100vw"> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="buzz_search">
+	<div class="container">
+		<style>
+   .ui-helper-hidden-accessible{display:none}.ui-autocomplete{cursor:default;left:0;position:absolute;top:0;max-height:190px;overflow-y:hidden;overflow-x:hidden;z-index:2147483647}.ui-front{z-index:100}.ui-menu{display:block;list-style:none;margin:0;outline:0;padding:0}.ui-widget{font-family:arial;font-size:1.1em;color:#111}.ui-autocomplete{overflow:hidden;-webkit-box-shadow:2px 17px 67px -4px rgba(0,0,0,.75);-moz-box-shadow:2px 17px 67px -4px rgba(0,0,0,.75);box-shadow:2px 17px 67px -4px rgba(0,0,0,.75);border:1px solid #fff;background:#fff}
+@media screen and (max-width: 767px) {
+ .pac-container {
+    top: 208px !important;
+}
+.pac-container.pac-logo.topspace {
+    top: 150px !important;
+}
+}
+
+.xdsoft_datetimepicker .xdsoft_timepicker {
+    width: 81px !important;
+    float: left;
+    text-align: center;
+    margin-left: 8px;
+    margin-top: 0;
+}</style>
+    <script> 
+            function searchlocal(cityid) { 
+                $.ajax({
+                type:'post',
+                 
+                url: 'https://shreeramtourtravels.co.in/ajax/Localpackage/index?city='+cityid+'&type=room',
+                dataType: "html", 
+                success: function(response){  
+                         $('#localpackage').html( response );
+                          $('#packloader').html('');
+                  }
+              }); 
+            } 
+        </script> 
+        <script> 
+            function searchtransfer(cityid) { 
+                $.ajax({
+                type:'post',
+                  
+                url: 'https://shreeramtourtravels.co.in/ajax/Localpackage/transfer?city='+cityid+'&type=airport',
+                dataType: "html", 
+                success: function(response){  
+                         $('#transpackage').html( response );
+                          $('#packloader').html('');
+                  }
+              }); 
+            } 
+        </script>
+<script>
+			function showlocal(){
+				
+				$('#hourly-tab').addClass('active');
+				$('#airport-tab').removeClass('active');
+				$('#hourly').addClass('show active');
+				$('#airport').removeClass('show active');
+				
+			}
+  
+  		    
+  			$(document).ready(function(){
+
+             $('.room_search input').focus(function(){ 
+               $('.pac-container').removeClass('topspace');
+              });
+             $('#location101').focus(function(){ 
+               $('.pac-container').addClass('topspace');
+              });
+            });
+		</script>
+		
+{% include 'custom_form.html' %}
+        
+        
+        
+        
+         <!-- /. error modal-content start -->
+
+            <!-- /. error modal-content start -->   </div>
+</section>
+<section class="about_us hm_abt">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-6 col-12 ">
+				<div class="about_img wow m_none" style="visibility: visible;  animation-name: fadeInLeftBig">
+                <img src="{% static 'assets/img/fin_abt.webp' %}" alt="Shree Ram Tour and Travels">
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-6 col-12 ">
+				<div class>
+				    <h1 class="wow" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInDown
+                        ;">Welcome To Shree Ram Tour & Travels 
+                        <!--: Shree Ram Tour and Travels -->
+                        </h1>
+
+					<p>Welcome to <a href="https://shivshaktitourtravels.com"><strong>Shree Ram Tour Travels</strong></a>, your go-to taxi service for a comfortable, safe, and reliable journey in Somnath and beyond! As a locally-rooted company with a deep commitment to serving our community, we take pride in offering top-notch transportation services tailored to your needs. Whether you&rsquo;re here for a pilgrimage, sightseeing, or business, our friendly drivers  <br>
+					<a href="https://shreeramtourtravels.co.in/about" class="default-btn btn-bg-two border-radius-50 mt-3">Read More</a> 
+				</p></div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="taxihire_section">
+	<div class="container">
+		<div class="comn_heading popl_city">
+			<h3 class="wow" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay:0.2s; animation-name: fadeInDown;">
+		  	   <span> Our Taxi For Hire</span> 
+			</h3>
+		</div>
+		<div class="project-slider ps_slide">
+			<div class="project-slider-area5  owl-carousel owl-theme">
+
+				{% for car in hotels %}
+				<div class="item">
+					<div class="pp_fleets">
+                        <img src="{{car.image.url}}" alt="room/Book room Online ">
+                        <span class="fleettag">₹{{ car.price }}/ KM</span>
+                    </div>
+                    <div class="fleettxt">
+						<h3>{{car.name}}</h3>
+						<!--<h6>₹12.00/ KM</h6>-->
+						<div class="flttxtbtn_wtsp">
+						    <a href="{{car.get_absolute_url}}" class="default-btn btn-bg-two border-radius-50"> Book Now</a>
+						    <a class="" href="https://wa.me/+919879144147">
+                                <div class="text-center chattxt">
+                                    <h5>Chat Now</h5>
+                                    <i class="fa fa-whatsapp color-whats"></i>
+                                </div>
+                            </a>
+						</div>
+					</div>
+				</div>
+				
+								{% endfor %}
+				</div>
+				</div>
+								
+
+				
+							
+		
+	
+</section>
+<div class="room-area-two popular_section my-5">
+        <div class="container">
+            <div class="section-title text-center mb-3">
+                <h2>Book Our Taxi Packages  </h2>
+            </div>
+            <div class="row">
+                	                                </div>
+        </div>
+    </div>
+    <div class="room-area-two">
+        <div class="container">
+            <div class="section-title text-center mb-3 mb-md-4">
+                <h2>Our Taxi Services</h2>
+            </div>
+            <div class="row">
+                <div class="service-slider-area5  owl-carousel owl-theme">
+				{% for hotel in hotels %}
+				<div>
+					<div class="room-item">
+						<a href="{{ hotel.get_absolute_url }}">
+							<img src="{{ hotel.image.url }}" alt="{{ hotel.name }}">
+						</a>
+						<div class="content">
+							<h3><a href="{{ hotel.get_absolute_url }}">{{ hotel.name }}</a></h3>
+							<p>{{ hotel.description|truncatechars:100 }}</p>
+						</div>
+						<div class="room-bottom">
+							<ul>
+								<li>Location: {{ hotel.location }}</li>
+								<li>Rating: {{ hotel.rating }} / 5</li>
+							</ul>
+							<a href="tel:+91-9879144147" class="book-btn">Call Now</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				
+                    	                    
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    	            	
+                             
+        
+    
+    
+    <div class="faq-area">
+        <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+
+
+											<div class="faqwrppr faq-content mt-3 mb-4">
+												<h2>FAQs</h2>
+												
+												
+												<div class="faq-accordion w-100">
+																	<ul class="accordion list-unstyled">
+																																					
+																			<li class="accordion-item">
+																					<a class="accordion-title active" href="javascript:void(0)">
+																							<i class="bx bx-plus"></i>
+																							1. Can I explore Somnath in a group?                                        </a>
+																					<div class="accordion-content show">
+																							<p>Yes, you can explore Somnath in a group by hiring a Tempo Traveller on rent by Shree Ram Tour &amp; Travels. We provide 12-seater Tempos at affordable prices for group journeys.</p>
+																					</div>
+																			</li>
+																																					 
+																			<li class="accordion-item">
+																					<a class="accordion-title " href="javascript:void(0)">
+																							<i class="bx bx-plus"></i>
+																							2. How to explore Gujarat with a group?                                        </a>
+																					<div class="accordion-content ">
+																							<p>You can explore the whole of Gujarat in a group by hiring a Tempo traveller 12 seater on rent in Somnath from Shree Ram Tour &amp; Travels.</p>
+																					</div>
+																			</li>
+																																					 
+																			<li class="accordion-item">
+																					<a class="accordion-title " href="javascript:void(0)">
+																							<i class="bx bx-plus"></i>
+																							3. How to book a Tempo in Somnath online?                                        </a>
+																					<div class="accordion-content ">
+																							<p>To book a Tempo in Somnath online, visit the website of Shree Ram Tour &amp; Travels, choose a service, trip and write down the initial and final destination with date and time.</p>
+																					</div>
+																			</li>
+																																					 
+																			<li class="accordion-item">
+																					<a class="accordion-title " href="javascript:void(0)">
+																							<i class="bx bx-plus"></i>
+																							4. What is the Tempo Traveller 12 seater price in Somnath?                                        </a>
+																					<div class="accordion-content ">
+																							<p>The Tempo Traveller 12 seater price in Somnath is Rs. 33/km.</p>
+																					</div>
+																			</li>
+																																					 
+																			<li class="accordion-item">
+																					<a class="accordion-title " href="javascript:void(0)">
+																							<i class="bx bx-plus"></i>
+																							5. Can I book a Tempo Traveller in Somnath urgently?                                        </a>
+																					<div class="accordion-content ">
+																							<p>Yes, you can book a tempo traveller in Somnath urgently by calling Shree Ram Tour &amp; Travels at this number: +91-9879144147.</p>
+																					</div>
+																			</li>
+																																			 </ul>
+													</div>
+												
+												<div class="accordion d-none" id="accordionExample">
+																											<div class="card">
+																	<div class="card-header" id="heading1">
+																		<h2 class="mb-0">
+																			<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="1" aria-controls="collapse1">
+																				Can I explore Somnath in a group?                                    </button>
+																		</h2>
+																	</div>
+																	<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+																		<div class="card-body">
+																			Yes, you can explore Somnath in a group by hiring a Tempo Traveller on rent by Shree Ram Tour &amp; Travels. We provide 12-seater Tempos at affordable prices for group journeys.                                  </div>
+																	</div>
+														</div>
+																											 <div class="card">
+																	<div class="card-header" id="heading2">
+																		<h2 class="mb-0">
+																			<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="" aria-controls="collapse2">
+																				How to explore Gujarat with a group?                                    </button>
+																		</h2>
+																	</div>
+																	<div id="collapse2" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+																		<div class="card-body">
+																			You can explore the whole of Gujarat in a group by hiring a Tempo traveller 12 seater on rent in Somnath from Shree Ram Tour &amp; Travels.                                  </div>
+																	</div>
+														</div>
+																											 <div class="card">
+																	<div class="card-header" id="heading3">
+																		<h2 class="mb-0">
+																			<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="" aria-controls="collapse3">
+																				How to book a Tempo in Somnath online?                                    </button>
+																		</h2>
+																	</div>
+																	<div id="collapse3" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+																		<div class="card-body">
+																			To book a Tempo in Somnath online, visit the website of Shree Ram Tour &amp; Travels, choose a service, trip and write down the initial and final destination with date and time.                                  </div>
+																	</div>
+														</div>
+																											 <div class="card">
+																	<div class="card-header" id="heading4">
+																		<h2 class="mb-0">
+																			<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="" aria-controls="collapse4">
+																				What is the Tempo Traveller 12 seater price in Somnath?                                    </button>
+																		</h2>
+																	</div>
+																	<div id="collapse4" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+																		<div class="card-body">
+																			The Tempo Traveller 12 seater price in Somnath is Rs. 33/km.                                  </div>
+																	</div>
+														</div>
+																											 <div class="card">
+																	<div class="card-header" id="heading5">
+																		<h2 class="mb-0">
+																			<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="" aria-controls="collapse5">
+																				Can I book a Tempo Traveller in Somnath urgently?                                    </button>
+																		</h2>
+																	</div>
+																	<div id="collapse5" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+																		<div class="card-body">
+																			Yes, you can book a tempo traveller in Somnath urgently by calling Shree Ram Tour &amp; Travels at this number: +91-9879144147.                                  </div>
+																	</div>
+														</div>
+																											 <!--<div class="card">-->
+														<!--      <div class="card-header" id="headingTwo">-->
+														<!--        <h2 class="mb-0">-->
+														<!--          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+														<!--            What is included in the price ?-->
+														<!--          </button>-->
+														<!--        </h2>-->
+														<!--      </div>-->
+														<!--      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">-->
+														<!--        <div class="card-body">-->
+														<!--          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck -->
+														<!--          quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh -->
+														<!--          helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,-->
+														<!--          raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+														<!--        </div>-->
+														<!--      </div>-->
+														<!--</div>-->
+														<!--<div class="card">-->
+														<!--      <div class="card-header" id="headingThree">-->
+														<!--        <h2 class="mb-0">-->
+														<!--          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">-->
+														<!--            What happens if my flight is early or get delayed ? -->
+														<!--          </button>-->
+														<!--        </h2>-->
+														<!--      </div>-->
+														<!--      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">-->
+														<!--        <div class="card-body">-->
+														<!--          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat-->
+														<!--          skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin -->
+														<!--          coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan -->
+														<!--          excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+														<!--        </div>-->
+														<!--      </div>-->
+														<!--</div>-->
+												</div>
+									</div>
+
+
+
+                        <!-- <div class="faq-content container mt-3">
+                            <div class="section-title text-center">
+                                <span class="sp-color">Frequently Asked Questions</span>
+                                <h2>Let's Start a Free of Questions and Get a Quick Support</h2>
+                            </div>
+                            <div class="faq-accordion">
+                                <ul class="accordion list-unstyled">
+																	{% for faq in faqlist %}
+                                                                        <li class="accordion-item">
+                                        <a class="accordion-title active" href="javascript:void(0)">
+                                            <i class="bx bx-plus"></i>
+                                            {{forloop.counter}}. {{faq.question}}                                        </a>
+                                        <div class="accordion-content show">
+                                            <p>{{faq.answer}}</p>
+                                        </div>
+                                    </li>
+
+																		{% endfor %}
+                                                                        
+                                                                                                        </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div> 
+    </div>
+    
+    <section class="career_opp1  testimon bg_f">
+    	<div class="container">
+    		<div class="comn_heading hdng_containr">
+    		   <h2 class="wow" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility:visible; animation-duration:1s; animation-delay:0.2s; animation-name:fadeInDown;"> Why People Love </h2>
+    				<!--<a href="https://shreeramtourtravels.co.in/testimonial" class="know_more vert-move"> Know More </a>-->
+    		</div>
+    		<div class="project-slider cl_test">
+    			<div class="clint_test_slide owl-carousel owl-theme">
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								We visited Dwarka Somnath trip on 19 Jan2024.We took 12seater tempo traveller for our journey. Tempo was in excellent condition and well maintained.Driver ANIL BHAI is very good driver and knowledgeable person.I really enjoy their service . द्वारकाधीश भगवान की जय हर हर महादेव    							</p>
+    							<div class="clt_detl">
+    								<h4>Rohit Goel, Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								Shree Ram Tour and Travels very co-operative and punctual, great experience over all, Thank you for all your services. All the best for future from Hetal chheda     							</p>
+    							<div class="clt_detl">
+    								<h4>Hetal chheda , Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								awesome!! experiece driver was too polite to speak and frank and good behaviour of ajay bhaiya. Thank your Shree Ram Tour Travels for best taxi services in Somnath    							</p>
+    							<div class="clt_detl">
+    								<h4>IKSHIT SINGHAL , Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								I had hired the vehicle for five days. Price was reasonable. A clean and good vehicle provided. Driver was courteous and well mannered. Always on time and was conversant with place of visit at Dwarka, Somnath and Diu. A reliable travel agency.    							</p>
+    							<div class="clt_detl">
+    								<h4>Arvind Kant, Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								I have a very good experience with Shree Ram Tours and travels.Driver is very polite and co operative.vehicle was also in good condition.    							</p>
+    							<div class="clt_detl">
+    								<h4>Roshan Agrawal , Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								Very good service. The bus was also nice and on time. Driver was also very co-operative. Thank You Shree Ram Tour Travels .    							</p>
+    							<div class="clt_detl">
+    								<h4>Shivan Bardolia , Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    				<div class="item">
+    					<div class="client_testi_box notched-box">
+    						<div class="clit_sub">	<i class="fa fa-quote-left quote"></i>
+    							<p>
+    								I recently had the pleasure of being driven by Anil, and I must say it was a fantastic experience. Vijay was punctual, courteous, and displayed exceptional driving skills throughout the journey. The room was clean and well-maintained, and I felt safe and comfortable throughout the ride.    							</p>
+    							<div class="clt_detl">
+    								<h4>Jitendra Upadhyay, Somnath</h4>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				    			</div> 
+    		</div>
+    	</div>
+    </section>
+<script>
+	var x, i, j, selElmnt, a, b, c;
+	
+	for (x = document.getElementsByClassName("custom-select"), i = 0; i < x.length; i++) {
+	    for (selElmnt = x[i].getElementsByTagName("select")[0], (a = document.createElement("DIV")).setAttribute("class", "select-selected"), 
+	    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML, x[i].appendChild(a), 
+	    (b = document.createElement("DIV")).setAttribute("class", "select-items select-hide"), 
+	    j = 1; j < selElmnt.length; j++) (c = document.createElement("DIV")).innerHTML = selElmnt.options[j].innerHTML, 
+	    c.addEventListener("click", function(a) {
+	        var b, c, d, e, f;
+	        for (e = this.parentNode.parentNode.getElementsByTagName("select")[0], f = this.parentNode.previousSibling, 
+	        c = 0; c < e.length; c++) if (e.options[c].innerHTML == this.innerHTML) {
+	            for (e.selectedIndex = c, f.innerHTML = this.innerHTML, b = this.parentNode.getElementsByClassName("same-as-selected"), 
+	            d = 0; d < b.length; d++) b[d].removeAttribute("class");
+	            this.setAttribute("class", "same-as-selected");
+	            break;
+	        }
+	        f.click();
+	    }), b.appendChild(c);
+	    x[i].appendChild(b), a.addEventListener("click", function(a) {
+	        a.stopPropagation(), closeAllSelect(this), this.nextSibling.classList.toggle("select-hide"), 
+	        this.classList.toggle("select-arrow-active");
+	    });
+	}        
+	
+	
+	
+	function removeit(e) {
+		$(".flmenu").height($(".flmenu").height() - 1), $(".appendhere > br").remove(), $(".remove" + e + " > br >").remove(), $(".remove" + e).remove()
+	}
+	
+	function removeitx(e) {
+		$(".flmenu").height($(".flmenu").height() - 1), $(".appendhere > br").remove(), $(".removes" + e + " > br >").remove(), $(".removes" + e).remove()
+	}
+	 
+	$("#airids").click(function () {
+	    // Modify the dynamic input creation here
+		var e = $("div#mainvias").length;
+		// Ensure no new 'locations' inputs with autocomplete are added
+		var t = '<div class="removes' + e + '" id="mainvias">'+
+                    '<input type="text" name="destination[]" id="locations' + e + '" class="form-control" placeholder="Destination">'+
+                    '<a href="#" onclick="removeitx(' + e + ');return false;" class="remove-field btn-remove-customer heading-add red-c"> '+
+                    '<span class="material-icons f-16"> close </span> Remove </a></div>';
+		$(".city_records_dynamic").append(t);
+		
+		// If you do not want to apply autocomplete, simply skip the next part that binds autocomplete
+		/*
+		$("input[id*='locations']").each(function () {
+			autocomplete = new google.maps.places.Autocomplete(this, {
+				types: ["(cities)"]
+			}), autocomplete.setComponentRestrictions({
+				country: "IN"
+			}), google.maps.event.addListener(autocomplete, "place_changed", function () {
+				fillInAddress()
+			})
+		});
+		*/
+	    return false;
+	});
+</script>
+ <script>
+        $(document).ready(function() {
+            $('.accordion-title').on('click', function() {
+                var content = $(this).next('.accordion-content');
+                $('.accordion-content').not(content).slideUp(200).removeClass('show');
+                content.slideToggle(200).toggleClass('show');
+                $('.accordion-title').not(this).removeClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+  
+
+
+{% include 'footer.html' %}
+
+
+   </body>
+</html>
