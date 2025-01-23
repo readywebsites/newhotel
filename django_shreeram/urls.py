@@ -18,7 +18,7 @@ from django.urls import path
 from main.views import home, search, about, contact, hotel_detail, room_detail
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views 
+from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
