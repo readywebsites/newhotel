@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Hotel, Room, HotelImage, FAQ
 from datetime import datetime
+from django.shortcuts import render
+
 
 
 def home(request):
@@ -56,3 +58,19 @@ def search(request):
 
     available_rooms = Room.objects.filter(is_available=True)
 
+def search_result(request):
+    city = request.GET.get('city')
+    check_in = request.GET.get('check_in')
+    check_out = request.GET.get('check_out')
+    guest_count = request.GET.get('guest_count')
+    room_type = request.GET.get('room_type')
+
+    # Add your logic to handle search results
+    context = {
+        'city': city,
+        'check_in': check_in,
+        'check_out': check_out,
+        'guest_count': guest_count,
+        'room_type': room_type,
+    }
+    return render(request, 'search_result.html', context)

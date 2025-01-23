@@ -18,6 +18,7 @@ from django.urls import path
 from main.views import home, search, about, contact, hotel_detail, room_detail
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,8 @@ urlpatterns = [
     path('contact/', contact, name="contact"),  # Contact page
     path('hotel/<slug:slug>/', hotel_detail, name="hotel_detail"),  # Hotel detail page with rooms and images
     path('room/<slug:slug>/', room_detail, name="room_detail"),  # Room detail page
+    path('search_result/', views.search_result, name='search_result'),  # Add this line
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
