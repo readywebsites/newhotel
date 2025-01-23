@@ -56,4 +56,3 @@ def search(request):
 
     available_rooms = Room.objects.filter(is_available=True)
 
-    if location

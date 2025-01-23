@@ -53,7 +53,7 @@ class HotelImage(models.Model):
 
 
 class FAQ(models.Model):
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='faqs')
+    hotel = models.ForeignKey('Hotel', on_delete=models.CASCADE, default=1)  # Use string reference for Hotel model
     question = models.CharField(max_length=255)
     answer = models.TextField()
 
